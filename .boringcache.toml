@@ -1,0 +1,13 @@
+workspace = "boringcache/agents-at-scale-ark"
+
+[adapters.docker]
+tag = "ark-dashboard-validation"
+no-git = true
+fail-on-cache-error = true
+command = [
+  "docker", "buildx", "build",
+  "--file", "services/ark-dashboard/Dockerfile",
+  "--platform", "linux/amd64",
+  "--tag", "ark-dashboard:validation",
+  "services/ark-dashboard",
+]
